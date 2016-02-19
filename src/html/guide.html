@@ -1,0 +1,29 @@
+<!doctype html>
+<script src="/jspm_packages/system.js"></script>
+<script src="/config.js"></script>
+<script>
+    (function(factory) {
+        'use strict';
+        if (typeof define === 'function' && define.amd) {
+            define(['System'], factory);
+        } else if (typeof exports !== 'undefined') {
+            module.exports = factory(require('System'));
+        } else {
+            factory(System);
+        }
+
+    }(function(SystemXE) {
+        'use strict';
+
+        var XE = window.XE || {};
+
+        SystemXE.import('src/js/lib/library.js');
+
+        Promise.all([
+            SystemXE.import('jquery1.12.0')
+        ]).then(function (j1120) {
+            console.log('loaded!');
+            console.log(j1120);
+        });
+    }));
+</script>
